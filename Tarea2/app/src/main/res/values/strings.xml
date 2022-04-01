@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Tarea2</string>
+    <string name="titulo">Bienvenido! Selecciona los ingredientes para tu hamburguesa:</string>
+    <string name="carne">Tipo de carne: </string>
+    <string name="carne_res">Carne de res</string>
+    <string name="carne_doble">Carne de res doble</string>
+    <string name="carne_veg">Vegetariana</string>
+    <string name="carne_vegDoble">Vegetariana doble</string>
+    <string name="ing_extras">Selecciona los ingredientes extra que desees:</string>
+    <string name="catsup">Catsup</string>
+    <string name="mostaza">Mostaza</string>
+    <string name="queso">Queso</string>
+    <string name="pepinillos">Pepinillos</string>
+    <string name="btn_enviar_txt">Enviar</string>
+
+    <string name="pedido_llego">Tu pedido ha sido confirmado!</string>
+    <string name="form_comentatios">Dejanos tus comentarios acerca de la aplicacion</string>
+    <string name="form_coment_hint">Deja tu opinion aqui...</string>
+    <string name="form_recomendarias">¿Recomendarias la app a tus amigos?</string>
+    <string name="recom_si">Si</string>
+    <string name="recom_no">No</string>
+</resources>
