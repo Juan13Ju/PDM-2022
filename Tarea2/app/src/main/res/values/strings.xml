@@ -19,4 +19,16 @@
     <string name="form_recomendarias">¿Recomendarias la app a tus amigos?</string>
     <string name="recom_si">Si</string>
     <string name="recom_no">No</string>
+
+    <string name="action_settings">Configuracion</string>
+    <string name="action_confirmar_pedido">Confirmar Pedido</string>
+    <string name="action_cancelar_pedido">Cancelar Pedido</string>
+    <string name="action_editar_pedido">Editar Pedido</string>
+
+    <string-array name="menu_items">
+        <item>Comida china</item>
+        <item>Comida italiana</item>
+        <item>Comida mexicana</item>
+        <item>Comida tailandesa</item>
+    </string-array>
 </resources>
