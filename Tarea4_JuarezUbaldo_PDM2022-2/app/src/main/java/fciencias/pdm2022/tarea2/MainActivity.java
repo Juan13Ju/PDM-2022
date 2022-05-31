@@ -89,12 +89,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_cancelar_pedido:
                 Log.d("MainActivity", (String) "Cancelando pedido");
+                resetPedido();
                 return true;
             case R.id.action_confirmar_pedido:
                 confirmarPedido();
                 return true;
             case R.id.action_editar_pedido:
                 Log.d("MainActivity", (String) "Editar Pedido");
+                resetPedido();
                 return true;
 
         }
@@ -104,10 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
     // Confirma un pedido y pasa a la siguiente actividad el contenido del pedido
     private void confirmarPedido(){
+
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
         // Obtenemos que tipo de carne deseamos
         radioGroup = findViewById(R.id.selCarne);
         int selectedId = radioGroup.getCheckedRadioButtonId();
+        if(selectedId == -1){
+            Toast.makeText(this, "Debes seleccionar un tipo de carne", Toast.LENGTH_SHORT).show();
+            return;
+        }
         radioButton = findViewById(selectedId);
         // Obtenemos los ingredientes extra
         String[] ingExtra = obtenerIngredientes();
@@ -135,11 +142,9 @@ public class MainActivity extends AppCompatActivity {
         if(pepinillo.isChecked()){
             res.add((String) pepinillo.getText());
         }
-        int m = res.size()-1;
-        String[] arrRes = new String[m];
-        for(int i = 0; i < m; i++){
-            arrRes[m] = res.get(m);
-        }
+        int m = res.size();
+        String[] arrRes = res.toArray(new String[0]);
+
         return arrRes;
     }
 
@@ -153,7 +158,20 @@ public class MainActivity extends AppCompatActivity {
             }
             if(resultCode == RESULT_CANCELED){
                 Toast.makeText(this, "Pedido cancelado", Toast.LENGTH_LONG).show();
+                resetPedido();
             }
         }
+    }
+
+    private void resetPedido(){
+        radioGroup.clearCheck();
+        CheckBox catsup = findViewById(R.id.sel_catsup);
+        catsup.setChecked(false);
+        CheckBox mostaza = findViewById(R.id.sel_mostaza);
+        mostaza.setChecked(false);
+        CheckBox queso = findViewById(R.id.sel_queso);
+        queso.setChecked(false);
+        CheckBox pepinillo = findViewById(R.id.sel_pepinillo);
+        pepinillo.setChecked(false);
     }
 }

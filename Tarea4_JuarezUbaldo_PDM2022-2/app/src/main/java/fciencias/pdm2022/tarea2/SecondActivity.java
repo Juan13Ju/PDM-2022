@@ -30,9 +30,10 @@ public class SecondActivity extends AppCompatActivity {
         TextView tv = new TextView(this);
         tv.setText(pedido);
         tv.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.FILL_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         ));
+        linearLayout.addView(tv);
 
         btnConfirmar = findViewById(R.id.btnConfirmar);
         btnCancelar = findViewById(R.id.btnCancelar);
