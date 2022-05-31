@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         if(pepinillo.isChecked()){
             res.add((String) pepinillo.getText());
         }
-        int m = res.size();
+        int m = res.size()-1;
         String[] arrRes = new String[m];
         for(int i = 0; i < m; i++){
             arrRes[m] = res.get(m);
