@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLay">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,5 +47,16 @@
             android:layout_height="wrap_content"
             android:text="@string/recom_no"/>
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnConfirmar"
+        android:text="@string/btnConfirmar"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCancelar"
+        android:text="@string/btnCancelar"/>
 
 </LinearLayout>

@@ -13,7 +13,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
+
+    private RadioGroup radioGroup;
+    private RadioButton radioButton;
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener{
         @Override
@@ -52,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
         btn_enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
+                confirmarPedido();
             }
         });
 
@@ -83,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("MainActivity", (String) "Cancelando pedido");
                 return true;
             case R.id.action_confirmar_pedido:
-                Log.d("MainActivity", (String) "Confirmando pedido");
+                confirmarPedido();
                 return true;
             case R.id.action_editar_pedido:
                 Log.d("MainActivity", (String) "Editar Pedido");
@@ -92,5 +100,55 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Confirma un pedido y pasa a la siguiente actividad el contenido del pedido
+    private void confirmarPedido(){
+        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        // Obtenemos que tipo de carne deseamos
+        radioGroup = findViewById(R.id.selCarne);
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(selectedId);
+        // Obtenemos los ingredientes extra
+        String[] ingExtra = obtenerIngredientes();
+        // Agregamos los valores al intent
+        intent.putExtra("TipoCarne", (String) radioButton.getText());
+        intent.putExtra("Extras", ingExtra);
+        startActivityForResult(intent, 1);
+    }
+
+    private String[] obtenerIngredientes(){
+        LinkedList<String> res = new LinkedList<>();
+        CheckBox catsup = findViewById(R.id.sel_catsup);
+        if(catsup.isChecked()){
+            res.add((String) catsup.getText());
+        }
+        CheckBox mostaza = findViewById(R.id.sel_mostaza);
+        if(mostaza.isChecked()){
+            res.add((String) mostaza.getText());
+        }
+        CheckBox queso = findViewById(R.id.sel_queso);
+        if(queso.isChecked()){
+            res.add((String) queso.getText());
+        }
+        CheckBox pepinillo = findViewById(R.id.sel_pepinillo);
+        if(pepinillo.isChecked()){
+            res.add((String) pepinillo.getText());
+        }
+        return (String[]) res.toArray();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(1 == requestCode){
+            if(resultCode == RESULT_OK){
+                Toast.makeText(this, "Gracias por tu pedido", Toast.LENGTH_LONG).show();
+            }
+            if(resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "Pedido cancelado", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }

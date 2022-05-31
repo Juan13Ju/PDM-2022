@@ -31,4 +31,7 @@
         <item>Comida mexicana</item>
         <item>Comida tailandesa</item>
     </string-array>
+
+    <string name="btnConfirmar">Confirmar</string>
+    <string name="btnCancelar">Cancelar</string>
 </resources>
