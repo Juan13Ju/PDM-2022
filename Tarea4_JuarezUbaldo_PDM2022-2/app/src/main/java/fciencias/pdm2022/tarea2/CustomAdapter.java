@@ -18,15 +18,15 @@ public class CustomAdapter extends BaseAdapter {
     private Context context;
     private int layout;
     private ArrayList<String> items;
-    private SharedPreferences pref;
-    private SharedPreferences.Editor editor;
+    public static SharedPreferences pref;
+    public static SharedPreferences.Editor editor;
 
     public CustomAdapter(Context context, int layout, ArrayList<String> arr){
         this.context = context;
         this.layout = layout;
         this.items = arr;
-        this.pref = context.getSharedPreferences("prefPedido", Context.MODE_PRIVATE);
-        this.editor = pref.edit();
+        pref = context.getSharedPreferences("prefPedido", Context.MODE_PRIVATE);
+        editor = pref.edit();
     }
 
 

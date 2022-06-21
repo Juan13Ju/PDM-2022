@@ -11,13 +11,10 @@
 
     <item
         android:id="@+id/action_confirmar_pedido"
-        android:title="@string/action_confirmar_pedido"
+        android:title="@string/continuar"
         app:showAsAction="never"
         />
-    <item
-        android:id="@+id/action_cancelar_pedido"
-        android:title="@string/action_cancelar_pedido"
-        app:showAsAction="never"/>
+
 
 
 </menu>

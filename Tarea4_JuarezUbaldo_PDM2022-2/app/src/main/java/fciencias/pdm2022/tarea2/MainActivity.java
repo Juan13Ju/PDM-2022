@@ -19,7 +19,7 @@ import android.widget.ListView;
 
 import android.widget.Toast;
 
-import java.util.LinkedList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_rapida;
     private Button btn_confirmar;
 
-    private SharedPreferences pref;
-    private SharedPreferences.Editor editor;
+    public static SharedPreferences pref;
+
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener{
         @Override
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         btn_confirmar = findViewById(R.id.btn_enviar);
 
         pref = getSharedPreferences("pedidoPref", MODE_PRIVATE);
-        editor = this.pref.edit();
+
 
         btn_mexicana.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,11 +128,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_settings:
                 Log.d("MainActivity", (String) "Abriendo configuracion");
                 return true;
-            case R.id.action_cancelar_pedido:
-                Log.d("MainActivity", (String) "Cancelando pedido");
-                this.pref.edit().clear().apply();
-                Toast.makeText(this, "Pedido cancelado", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.action_confirmar_pedido:
                 Intent intent = new Intent(MainActivity.this, ActivityPedido.class);
                 startActivityForResult(intent, 1);
@@ -151,6 +146,9 @@ public class MainActivity extends AppCompatActivity {
         if(1 == requestCode){
             if(resultCode == RESULT_OK){
                 Toast.makeText(this, "Gracias por tu pedido", Toast.LENGTH_LONG).show();
+            }
+            if(resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "PedidoCancelado", Toast.LENGTH_LONG).show();
             }
 
         }

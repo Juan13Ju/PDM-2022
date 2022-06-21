@@ -16,8 +16,9 @@ public class ActivityPedido extends AppCompatActivity {
 
     private ListView listView;
     private ArrayList<String> pedido;
-    private SharedPreferences pref;
+    public static SharedPreferences pref;
     Button btn_confirmar;
+    Button btn_cancelar;
 
 
     @Override
@@ -40,12 +41,22 @@ public class ActivityPedido extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         btn_confirmar = findViewById(R.id.btn_confirmarPedido);
+        btn_cancelar = findViewById(R.id.btn_cancelar_pedido);
 
         btn_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pref.edit().clear().apply();
                 setResult(RESULT_OK);
+                finish();
+            }
+        });
+
+        btn_cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pref.edit().clear().apply();
+                setResult(RESULT_CANCELED);
                 finish();
             }
         });
