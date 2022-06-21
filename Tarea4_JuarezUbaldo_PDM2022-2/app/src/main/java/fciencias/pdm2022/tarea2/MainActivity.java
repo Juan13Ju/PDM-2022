@@ -14,10 +14,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
+
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+
 import android.widget.Toast;
 
 import java.util.LinkedList;
@@ -40,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id){
             Log.d("MainActivity", (String) parent.getAdapter().getItem(position));
+            String selected = parent.getAdapter().getItem(position) + "";
+            switch (selected){
+                case "Comida Mexicana":
+                    Intent intent = new Intent(MainActivity.this, ActivityMexicana.class);
+                    startActivity(intent);
+                    break;
+                case "Comida Rapida":
+                    Intent intentR = new Intent(MainActivity.this, ActivityRapida.class);
+                    startActivity(intentR);
+                    break;
+            }
         }
     }
 
@@ -121,12 +131,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_cancelar_pedido:
                 Log.d("MainActivity", (String) "Cancelando pedido");
                 editor.clear();
-                editor.apply();
+                editor.commit();
                 Toast.makeText(this, "Pedido cancelado", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_confirmar_pedido:
                 Intent intent = new Intent(MainActivity.this, ActivityPedido.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
                 return true;
 
         }
@@ -134,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*
+
        @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -145,10 +155,9 @@ public class MainActivity extends AppCompatActivity {
             }
             if(resultCode == RESULT_CANCELED){
                 Toast.makeText(this, "Pedido cancelado", Toast.LENGTH_LONG).show();
-                resetPedido();
             }
         }
-    }*/
+    }
 
 
 }

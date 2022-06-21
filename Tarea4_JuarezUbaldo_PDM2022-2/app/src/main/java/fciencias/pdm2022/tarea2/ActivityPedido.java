@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class ActivityPedido extends AppCompatActivity {
     private ListView listView;
     private ArrayList<String> pedido;
     private SharedPreferences pref;
+    Button btn_confirmar;
 
 
     @Override
@@ -35,5 +38,16 @@ public class ActivityPedido extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, pedido);
 
         listView.setAdapter(adapter);
+
+        btn_confirmar = findViewById(R.id.btn_confirmarPedido);
+
+        btn_confirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pref.edit().clear().apply();
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
     }
 }
