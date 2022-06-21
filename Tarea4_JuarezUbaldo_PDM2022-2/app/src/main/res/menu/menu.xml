@@ -19,8 +19,5 @@
         android:title="@string/action_cancelar_pedido"
         app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/action_editar_pedido"
-        android:title="@string/action_editar_pedido"
-        app:showAsAction="never"/>
+
 </menu>

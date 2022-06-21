@@ -1,37 +1,19 @@
 <resources>
-    <string name="app_name">Tarea2</string>
-    <string name="titulo">Bienvenido! Selecciona los ingredientes para tu hamburguesa:</string>
-    <string name="carne">Tipo de carne: </string>
-    <string name="carne_res">Carne de res</string>
-    <string name="carne_doble">Carne de res doble</string>
-    <string name="carne_veg">Vegetariana</string>
-    <string name="carne_vegDoble">Vegetariana doble</string>
-    <string name="ing_extras">Selecciona los ingredientes extra que desees:</string>
-    <string name="catsup">Catsup</string>
-    <string name="mostaza">Mostaza</string>
-    <string name="queso">Queso</string>
-    <string name="pepinillos">Pepinillos</string>
-    <string name="btn_enviar_txt">Enviar</string>
-
-    <string name="pedido_llego">Tu pedido ha sido confirmado!</string>
-    <string name="form_comentatios">Dejanos tus comentarios acerca de la aplicacion</string>
-    <string name="form_coment_hint">Deja tu opinion aqui...</string>
-    <string name="form_recomendarias">¿Recomendarias la app a tus amigos?</string>
-    <string name="recom_si">Si</string>
-    <string name="recom_no">No</string>
 
     <string name="action_settings">Configuracion</string>
     <string name="action_confirmar_pedido">Confirmar Pedido</string>
     <string name="action_cancelar_pedido">Cancelar Pedido</string>
-    <string name="action_editar_pedido">Editar Pedido</string>
-
+    <string name="app_name">Proyecto Final</string>
+    <string name="bienvenida">Bienvenido a Uver Its! Puedes navegar nuestras opciones de comida
+    usando el navegador o los botones. Para confirmar tu pedido pulsa el boton de confirmar</string>
+    <string name="btn_mexicana">Mexicana</string>
+    <string name="btn_rapida">Rapida</string>
+    <string name="confirmar_pedido">Confirmar</string>
     <string-array name="menu_items">
-        <item>Comida china</item>
-        <item>Comida italiana</item>
-        <item>Comida mexicana</item>
-        <item>Comida tailandesa</item>
+        <item>Comida Mexicana</item>
+        <item>Comida Rapida</item>
     </string-array>
+    <string name="btn_anadir">Añadir</string>
 
-    <string name="btnConfirmar">Confirmar</string>
-    <string name="btnCancelar">Cancelar</string>
+
 </resources>
